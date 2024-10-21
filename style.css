@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* box-sizing: border-box; */
+}
+body {
+    min-height: 100vh;
+    background: #1a1c29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.container {
+    position: relative;
+}
+.container::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    background: white;
+    animation: large-white 2s ease-in-out infinite;
+}
+    @keyframes large-white {
+    0% {
+        transform: translateX(calc( -50% + 15px));
+    }
+    50% {
+        transform: translateX(calc( -50% - 15px));
+
+    }
+    100% {
+        transform: translateX(calc( -50% + 15px));
+    }
+}  
+   
+.container::after {
+    content: "";
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: #c84a3c;
+}
+.container .loader {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    /* border: solid white 2px; */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: loader 2s ease-in-out infinite;
+}
+   @keyframes loader {
+    0% {
+        transform: translateX(calc(-50% - 15px)) rotate(50deg); 
+    }
+    50% {
+        transform: translateX(calc(-50% + 15px)) rotate(-50deg); 
+    }
+        100% {
+        transform: translateX(calc(-50% - 15px)) rotate(50deg);
+        }
+    } 
+.container .loader::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: #01a8dd;
+}
+.container .loader .ball {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%,-100%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    animation: ball 2s ease-in-out infinite;
+}
+   @keyframes ball {
+    0% {
+        /* transform: translateX(calc(-100px - 50%)); */
+         transform: translate(calc(-100px - 100%),-100%);
+    }
+    50% {
+        /* transform: translateX(calc(-100px - 50%)); */
+         transform: translate(100px ,-100%);
+    }
+    100% {
+        /* transform: translateX(calc(-100px - 50%)); */
+        transform: translate(calc(-100px - 100%),-100%);
+    }
+}   
